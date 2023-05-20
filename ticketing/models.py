@@ -23,18 +23,19 @@ class Bus(models.Model):
 class BusRoute(models.Model):
     start_point = models.CharField(max_length=100)
     destination = models.CharField(max_length=100)
-    duration = models.DurationField()
     departure_time = models.DateTimeField()
     arrival_time = models.DateTimeField()
+    def duration(self):
+        return self.arrival_time-self.departure_time
     bus = models.ForeignKey(Bus, on_delete=models.CASCADE)
-
+    price = models.FloatField(default=0.0)
 
 
 class Ticket(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     bus_route = models.ForeignKey(BusRoute, on_delete=models.CASCADE)
     purchase_datetime = models.DateTimeField(auto_now_add=True)
-    price = models.FloatField()
+
 
 
 
