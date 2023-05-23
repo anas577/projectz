@@ -2,11 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class Customer(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    cin = models.CharField(max_length=8)
-
-
 class Bus(models.Model):
     #(value, display_name)
     STATUS_CHOICES = (
