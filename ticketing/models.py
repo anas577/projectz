@@ -29,7 +29,7 @@ class BusRoute(models.Model):
 class Ticket(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     bus_route = models.ForeignKey(BusRoute, on_delete=models.CASCADE)
-    purchase_datetime = models.DateTimeField(auto_now_add=True)
+    seat_number = models.IntegerField()
 
 
 
