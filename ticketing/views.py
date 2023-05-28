@@ -3,7 +3,11 @@ from django.shortcuts import render
 from .models import BusRoute
 
 def index(request):
-    objects = BusRoute.objects.all()
-    return render(request,'index.html',{'objects':objects})
+    route_list=BusRoute.objects.all()
+    context = {
+        'route_list': route_list,
+        'user': request.user,
+    }
+    return render(request, 'ticketing/index.html', context)
 
 

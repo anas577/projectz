@@ -21,7 +21,7 @@ import ticketing.views
 from django.urls import include, path
 
 urlpatterns = [
-    path("index/", include("ticketing.urls")),
+    path("", include("ticketing.urls")),
     path('admin/', admin.site.urls),
     path("members/", include("members.urls")),
     path("members/", include("django.contrib.auth.urls")),

@@ -29,7 +29,7 @@ class BusRoute(models.Model):
 class Ticket(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     bus_route = models.ForeignKey(BusRoute, on_delete=models.CASCADE)
-    seat_number = models.IntegerField()
+    seat_number = models.IntegerField(default=1)
 
 
 
