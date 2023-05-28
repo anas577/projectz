@@ -1,0 +1,25 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" >
+    <link href="{% static 'css/navbar.css' %}" rel="stylesheet" >
+    <title>{% block title %}Hello{% endblock %}</title>
+
+  </head>
+  <body>
+  	{% include 'ticketing/navbar.html' %}
+    <br/>
+    <div class="container">
+    {% block content %}
+    {% endblock %}
+     </div>
+    {% include 'ticketing/footer.html' %}
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}" ></script>
+
+
+  </body>
+</html>

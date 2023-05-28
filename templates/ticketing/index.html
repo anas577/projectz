@@ -1,0 +1,37 @@
+{% extends 'ticketing/base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>Available </h1>
+<div class="container text-center">
+    {% for route in route_list %}
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col">{{ route.departure_time.time }}</div>
+                <div class="col">{{ route.start_point }}</div>
+            </div>
+            <div class="row">
+                <div class="col">{{ route.arrival_time.time }}</div>
+                <div class="col">{{ route.destination }}</div>
+            </div>
+        </div>
+        <div class="col">
+            {{ route.duration }}
+        </div>
+        <div class="col">
+            <button class="btn">Book</button>
+        </div>
+    </div>
+        <br>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
