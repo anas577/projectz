@@ -1,0 +1,57 @@
+{% extends 'ticketing/base.html' %}
+{% block content %}
+{% load static %}
+
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Sign up{% endblock %}</title>
+    <meta name="theme-color" content="#712cf9">
+  </head>
+
+  <body>
+    <main class="form-signin w-25 m-auto text-center mt-5">
+        <form action="" method="POST" novalidate>
+          {% csrf_token %}
+
+            <h1 class="h3 mb-3 fw-bold">Sign up</h1>
+
+            <div class="form-floating">
+              <input type="text" class="form-control" id="floatingInput" name="username" placeholder="Username">
+              <label for="floatingInput">Username</label>
+            </div>
+            <div class="form-floating">
+              <input type="email" class="form-control" id="floatingInput" name="email" placeholder="example@domain.com">
+              <label for="floatingInput">Email</label>
+            </div>
+            <div class="form-floating">
+              <input type="password" class="form-control" id="floatingPassword" name="password1" placeholder="Password">
+              <label for="floatingPassword">Password</label>
+            </div>
+            <div class="form-floating">
+              <input type="password" class="form-control" id="floatingPassword" name="password2" placeholder="Password">
+              <label for="floatingPassword">Password confirmation</label>
+            </div>
+            <br>
+            <button class="w-50 btn btn-lg " type="submit">Sign up</button>
+        <br>
+        <p>Already have an account? <a href="{% url 'loggin' %}">Login</a></p>
+        {% for field in form %}
+            {% if field.errors %}
+                <span class="text-danger">
+                  {{ field.errors|join:", " }}
+                </span>
+              {% endif %}
+        {% endfor %}
+        </form>
+    </main>
+
+
+
+  </body>
+<script src={% static 'js/bootstrap.bundle.min.js' %}></script>
+</html>
+
+{% endblock %}

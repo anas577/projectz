@@ -7,17 +7,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
-
-
-
+    <title>{% block title %}Login{% endblock %}</title>
     <meta name="theme-color" content="#712cf9">
-
   </head>
 
   <body>
-
-
     <main class="form-signin w-25 m-auto text-center mt-5">
         <form action="" method="POST">
           {% csrf_token %}
@@ -34,7 +28,8 @@
             </div>
             <br>
             <button class="w-50 btn btn-lg " type="submit">Sign in</button>
-
+            <br>
+            <p>Not a member? <a href="{% url 'reggister' %}">Sign up</a></p>
         </form>
     </main>
 

@@ -9,7 +9,7 @@ class Bus(models.Model):
         ('premium', 'Premium'),
     )
     number = models.CharField(max_length=50)
-    capacity = models.IntegerField()
+    capacity = models.IntegerField(default=50)
     driver_name = models.CharField(max_length=100)
     type = models.CharField(max_length=20,choices=STATUS_CHOICES)
 
