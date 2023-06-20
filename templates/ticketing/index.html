@@ -1,13 +1,14 @@
 {% extends 'ticketing/base.html' %}
 {% block title %}Home{% endblock %}
-
 {% block content %}
-<h1>Available </h1>
-<div class="row">
+
+<div class="card p-4">
     <form method="get">
         {{ myFilter.form }}
-        <button type="submit">search</button>
+        <button type="submit" class="btn mx-5">search</button>
     </form>
+
+
 </div>
     <br>
 <div class="container text-center">

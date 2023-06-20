@@ -14,3 +14,5 @@ def index(request):
     return render(request, 'ticketing/index.html', context)
 
 
+def about(request):
+    return render(request, 'ticketing/aboutus.html')
