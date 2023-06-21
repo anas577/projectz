@@ -1,0 +1,16 @@
+{% extends 'ticketing/base.html' %}
+{% block title %}Book a ticket{% endblock %}
+
+{% block content %}
+
+
+<main class="w-25 m-auto text-center mt-5">
+    <form method="POST" action="">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn">Submit</button>
+</form>
+</main>
+
+
+{% endblock %}

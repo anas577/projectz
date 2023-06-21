@@ -13,6 +13,7 @@
     <br>
 <div class="container text-center">
     {% for route in route_list %}
+        {% if route.available_seats > 0 %}
         <div class="card border-black p-3">
     <div class="row">
         <div class="col">
@@ -32,11 +33,12 @@
             <span class="fw-bold">{{ route.bus.type }}</span>
         </div>
         <div class="col">
-            <button class="btn">Book</button>
+            <a href="{% url 'book' route.id %}"><button class="btn">Book</button></a>
         </div>
     </div>
         </div>
         <br>
+        {% endif %}
     {% endfor %}
 </div>
 
