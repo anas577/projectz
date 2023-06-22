@@ -43,3 +43,5 @@ def book(request,routeid):
         form = TicketForm(initial=initial_data)
     return render(request, 'ticketing/book.html', {'form': form})
 
+def tracking(request):
+    return render(request, 'ticketing/tracking.html')

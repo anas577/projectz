@@ -74,6 +74,7 @@ class Ticket(models.Model):
         p.drawString(100, 600, f'Last name: {self.last_name}')
         p.drawString(100, 550, f'Bus Route: {self.bus_route.start_point} - {self.bus_route.destination}')
         p.drawString(100, 500, f'Seat Number: {self.seat_number}')
+        p.drawString(100, 450, f'Tracking Code: {self.bus_route_id}')
 
         # Add more fields as needed
 
