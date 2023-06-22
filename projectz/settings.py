@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -132,3 +132,11 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Define the path to your JSON files
+JSON_FILES_DIR = os.path.join(BASE_DIR, 'data')  # Update 'json_files' with your actual directory name
+
+# Update the MEDIA_ROOT setting
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Add the following setting at the end of the file
+GOOGLE_MAPS_API_KEY = 'YOUR_API_KEY'  # Replace 'YOUR_API_KEY' with your actual API key

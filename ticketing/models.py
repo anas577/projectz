@@ -4,7 +4,7 @@ from django.db.models import Max
 from django.http import HttpResponse
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
-
+import json
 
 class Bus(models.Model):
     #(value, display_name)
@@ -89,4 +89,13 @@ class Location(models.Model):
     longitude = models.FloatField()
     timestamp = models.DateTimeField(auto_now_add=True)
     bus = models.ForeignKey(Bus, on_delete=models.CASCADE)
+
+    @staticmethod
+    def get_locations_from_json(bus_route_id):
+        # Load the JSON file containing bus locations
+        json_file_path = f'path/to/your/json/files/{bus_route_id}.json'
+        with open(json_file_path, 'r') as f:
+            locations_data = json.load(f)
+
+        return locations_data
 

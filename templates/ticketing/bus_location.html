@@ -1,0 +1,51 @@
+{% extends 'ticketing/base.html' %}
+{% block title %}Tracking{% endblock %}
+{% block content %}
+ <form method="post" action="">
+  {% csrf_token %}
+     <label>
+         <input type="text" name="tracking_code" placeholder="Enter Tracking Code">
+     </label>
+     <button type="submit">Track Bus</button>
+</form>
+{% endblock %}
+
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+  </style>
+  <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
+
+
+  <div id="map"></div>
+
+  <script>
+    var markers = {{ markers|safe }};
+    var map = new ol.Map({
+      target: 'map',
+      layers: [
+        new ol.layer.Tile({
+          source: new ol.source.OSM()
+        })
+      ],
+      view: new ol.View({
+        center: ol.proj.fromLonLat([markers[0].lon, markers[0].lat]),
+        zoom: 10
+      })
+    });
+
+    markers.forEach(function(marker) {
+      var popup = new ol.Overlay({
+        position: ol.proj.fromLonLat([marker.lon, marker.lat]),
+        element: document.createElement('div'),
+        stopEvent: false
+      });
+      map.addOverlay(popup);
+
+      var content = document.createElement('div');
+      content.innerHTML = marker.popup;
+      popup.getElement().appendChild(content);
+    });
+  </script>
